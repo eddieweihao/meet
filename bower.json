@@ -1,0 +1,25 @@
+{
+  "name": "meet",
+  "homepage": "https://github.com/steinwh/meet",
+  "authors": [
+    "steinwh <524470482@qq.com>"
+  ],
+  "description": "web app",
+  "main": "",
+  "keywords": [
+    "meet"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

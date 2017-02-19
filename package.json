@@ -1,0 +1,32 @@
+{
+  "name": "meet",
+  "version": "1.0.0",
+  "description": "web app",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "bower": "^1.8.0",
+    "express": "^4.14.1",
+    "jade": "^1.11.0",
+    "moment": "^2.17.1",
+    "mongoose": "^4.8.3",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steinwh/meet.git"
+  },
+  "keywords": [
+    "meet"
+  ],
+  "author": "Wei Hao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/steinwh/meet/issues"
+  },
+  "homepage": "https://github.com/steinwh/meet#readme"
+}

@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+	.container
+		.row
+			img(src="#{userinfo.image}",alt="#{userinfo.name}")
+			dl.dl-horizontal
+				dt 姓名
+				dd= userinfo.name
+				dt 年龄
+				dd= userinfo.age
+				dt 学院
+				dd= userinfo.college
+				dt 简介
+				dd= userinfo.summary
