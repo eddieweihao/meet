@@ -2,13 +2,11 @@ extends ../layout
 
 block content
 	.container
-		.row
-			each item in userinfos
-				.row
-					.thumbnail
-						a(href="/userinfo/#{item._id}")
-							img(src="#{item.image}",alt="#{item.name}")
-						.caption
-							h3 #{item.name}
-							a.btn.btn-primary(href="/userinfo/#{item._id}",role="button") 查看详情
+		each item in userinfos
+			.thumbnail
+				a(href="/userinfo/#{item._id}")
+					img(src="#{item.image}",alt="#{item.name}")
+				.caption
+					p #{item.name}
+					a.btn.btn-primary(href="/userinfo/#{item._id}",role="button") 查看详情
 								

@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+	.container
+		br
+		form.form-signin
+			label.sr-only(for="inputEmail") 注册邮箱
+			input(type="email" id="inputEmail" class="form-control" placeholder="注册邮箱" required autofocus)
+			label.sr-only(for="inputPassword") 用户密码
+			input(type="password" id="inputPassword" class="form-control" placeholder="用户密码" required)
+			.checkbox
+				label 
+					input(type="checkbox" value="remember-me")
+					span 记住我 
+			button.btn.btn-lg.btn-primary.btn-block(type="submit") 登录

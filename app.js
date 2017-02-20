@@ -89,3 +89,17 @@ app.get('/setting',function(req, res){
 		title:'设置'
 	})
 })
+
+//sign-in page
+app.get('/sign-in',function(req, res){
+	res.render('sign-in',{
+		title:'登录'
+	})
+})
+
+//sign-up page
+app.get('/sign-up',function(req, res){
+	res.render('sign-up',{
+		title:'注册'
+	})
+})
