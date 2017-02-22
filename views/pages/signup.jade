@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+	.container
+		br
+		form.form-signup(method="POST",action="/user/signup")
+			label.sr-only(for="signupName") 注册邮箱
+			input#signupName(name="user[name]" type="email" class="form-control" placeholder="注册邮箱" required autofocus)
+			label.sr-only(for="signupPassword") 用户密码
+			input#signupPassword(name="user[password]" type="password" class="form-control" placeholder="用户密码" required)
+			//- label.sr-only(for="inputPassword") 确认密码
+			//- input(type="password" id="confirmPassword" class="form-control" placeholder="确认密码" required)
+			br
+			button.btn.btn-lg.btn-primary.btn-block(type="submit") 注册

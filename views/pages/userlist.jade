@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+	.container
+		each item in users
+			.thumbnail
+				span #{item._id}
+				.caption
+					p #{item.name}
+					a.btn.btn-primary(href="#",role="button") 编辑用户
