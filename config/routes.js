@@ -1,173 +1,43 @@
-var User = require('../models/user');
-var _ = require('underscore');
+var Index = require('../app/controllers/index');
+var Userinfo = require('../app/controllers/userinfo');
+var Meet = require('../app/controllers/meet');
+var Personalinfo = require('../app/controllers/personalinfo');
+var Setting = require('../app/controllers/setting');
+var User = require('../app/controllers/user');
+var Admin = require('../app/controllers/admin');
 
 module.exports = function(app){
 	//pre handle user
 	app.use(function(req, res, next){
 		var _user = req.session.user;
-		if(_user){
-			app.locals.user = _user;
-		}
-		return next();
+		app.locals.user = _user;
+		next();
 	})
 
-	//index page
-	app.get('/',function(req, res){
+	// Index
+  	app.get('/', Index.index);
 
-		res.render('index',{
-			title:'首页',
-			userinfos:[
-			{
-				name:'1号用户',
-				_id: 1,
-				image:'mock-data/1.jpg'
-			},
-			{
-				name:'2号用户',
-				_id: 2,
-				image:'mock-data/1.jpg'
-			},
-			{
-				name:'3号用户',
-				_id: 3,
-				image:'mock-data/1.jpg'
-			},
-			{
-				name:'4号用户',
-				_id: 4,
-				image:'mock-data/1.jpg'
-			},
-			{
-				name:'5号用户',
-				_id: 5,
-				image:'mock-data/1.jpg'
-			}]
-		})
-	})
+  	//Userinfo
+  	app.get('/userinfo/:id', Userinfo.userinfodetail);
 
-	//userinfo detail page
-	app.get('/userinfo/:id',function(req,res){
-		res.render('userinfodetail',{
-			title:'用户详情',
-			userinfo:{
-				name:'1号用户',
-				_id: 1,
-				image:'mock-data/1.jpg',
-				age:'21',
-				college:'XX学院',
-				summary:'一段自我介绍',
-			}
-		})
-	})
+  	//Meet
+  	app.get('/meet', Meet.meet);
 
-	//meet page
-	app.get('/meet',function(req, res){
-		res.render('meet',{
-			title:'遇见'
-		})
-	})
+  	//Personalinfo
+  	app.get('/personalinfo', Personalinfo.personalinfo);
 
-	//personalinfo page
-	app.get('/personalinfo',function(req, res){
-		res.render('personalinfo',{
-			title:'个人信息'
-		})
-	})
+  	//Setting
+  	app.get('/setting', Setting.setting);
 
-	//setting page
-	app.get('/setting',function(req, res){
-		res.render('setting',{
-			title:'设置'
-		})
-	})
+  	// User
+  	app.post('/user/signup', User.signup);
+  	app.post('/user/signin', User.signin);
+  	app.get('/signin', User.showsignin);
+  	app.get('/signup', User.showsignup);
+  	app.get('/logout', User.logout);
 
-	//signin page
-	app.get('/signin',function(req, res){
-		res.render('signin',{
-			title:'登录'
-		})
-	})
+  	//Admin
+  	app.get('/admin/userlist', Admin.adminuserlist);
 
-	//signup page
-	app.get('/signup',function(req, res){
-		res.render('signup',{
-			title:'注册'
-		})
-	})
-
-	//logout
-	app.get('/logout',function(req, res){
-		delete req.session.user;
-		delete app.locals.user;
-		res.redirect('/');
-	})
-
-
-	//signup back-end
-	app.post('/user/signup',function(req,res){
-		var _user = req.body.user
-
-		User.findOne({name: _user.name},  function(err, user) {
-			if (err) {
-			  console.log(err)
-			}
-
-			if (user) {
-			  return res.redirect('/signin')
-			}
-			else {
-			  user = new User(_user)
-			  user.save(function(err, user) {
-			    if (err) {
-			      console.log(err)
-			    }
-
-			    res.redirect('/')
-			  })
-			}
-		})
-	})
-
-	//signin back-end
-	app.post('/user/signin',function(req,res){
-		var _user = req.body.user;
-		var name = _user.name;
-		var password = _user.password;
-
-		User.findOne({name:name},function(err,user){
-			if(err){ console.log(err); }
-			if(!user){
-				return res.redirect('/signup');
-			}
-
-			user.comparePassword(password,function(err,isMatch){
-				if(err){ console.log(err); }
-				if(isMatch){
-					req.session.user = user;
-
-					return res.redirect('/');
-				}else{
-					return res.redirect('/signin');
-				}
-			})
-
-		});
-	})
-
-
-
-	//admin userlist page
-	app.get('/admin/userlist',function(req,res){
-		User.fetch(function(err,users){
-			if(err){
-				console.log(err);
-			}
-
-			res.render('userlist',{
-				title: '用户列表页',
-				users: users
-			})
-		})
-	})
 }
 
