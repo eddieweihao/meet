@@ -14,20 +14,21 @@ module.exports = function(app){
 		next();
 	})
 
+	//routes
 	// Index
   	app.get('/', Index.index);
 
   	//Userinfo
-  	app.get('/userinfo/:id', Userinfo.userinfodetail);
+  	app.get('/userinfo/:id',User.signinRequired, Userinfo.userinfodetail);
 
   	//Meet
-  	app.get('/meet', Meet.meet);
+  	app.get('/meet',User.signinRequired, Meet.meet);
 
   	//Personalinfo
-  	app.get('/personalinfo', Personalinfo.personalinfo);
+  	app.get('/personalinfo',User.signinRequired, Personalinfo.personalinfo);
 
   	//Setting
-  	app.get('/setting', Setting.setting);
+  	app.get('/setting',User.signinRequired, Setting.setting);
 
   	// User
   	app.post('/user/signup', User.signup);
@@ -37,7 +38,7 @@ module.exports = function(app){
   	app.get('/logout', User.logout);
 
   	//Admin
-  	app.get('/admin/userlist', Admin.adminuserlist);
+  	app.get('/admin/userlist',User.signinRequired, User.adminRequired, Admin.adminuserlist);
 
 }
 
