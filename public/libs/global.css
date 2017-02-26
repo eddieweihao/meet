@@ -10,7 +10,7 @@ body{ width:100%;height:100% }
 .global-header-box{
 	width:100%;
 	height:90px;
-	background: #000000;
+	background: #FFFFFF;
 	margin-bottom: 10px;
 }
 
@@ -37,18 +37,18 @@ body{ width:100%;height:100% }
 .global-header-sign .sign-up{
 	display: block;
 	float: left;
+	margin-left: 10px
 }
 
 .global-header-sign .sign-in{
 	display: block;
 	position: absolute;
-	right: 0px;
+	right: 10px;
 }
 
 .global-header-sign span{
 	display: block;
 	line-height: 40px;
-	width: 60px;
 	font-size: 18px;
 	text-align: center;
 }

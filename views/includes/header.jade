@@ -1,9 +1,16 @@
 .global-header
 	.global-header-title
 		span Meet
-	.global-header-sign
-		a.sign-up(href="http://localhost:3000/signup",role="button")
-			span 注册
-		a.sign-in(href="http://localhost:3000/signin",role="button")
-			span 登录
+	if user
+		.global-header-sign
+			a.sign-up(href="#",role="button")
+				span #{user.name}
+			a.sign-in(href="/logout",role="button")
+				span 登出
+	else
+		.global-header-sign
+			a.sign-up(href="/signup",role="button")
+				span 注册
+			a.sign-in(href="/signin",role="button")
+				span 登录
 .global-header-box
