@@ -2,4 +2,14 @@ extends ../layout
 
 block content
 	.container
-		h1 #{title}
+		br
+		h4 修改密码
+		form.form-signup(method="POST",action="/user/resetpw")
+			label.sr-only(for="signupPassword") 旧密码
+			input#oldPassword(name="user[oldpassword]" type="password" class="form-control" placeholder="旧密码" required)
+			label.sr-only(for="signupPassword") 新密码
+			input#newPassword(name="user[newpassword]" type="password" class="form-control" placeholder="新密码" required)
+			//- label.sr-only(for="inputPassword") 确认密码
+			//- input(type="password" id="confirmPassword" class="form-control" placeholder="确认密码" required)
+			br
+			button.btn.btn-lg.btn-primary.btn-block(type="submit") 确认修改

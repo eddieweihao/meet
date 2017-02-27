@@ -71,6 +71,41 @@ exports.signin = function(req,res){
 	});
 }
 
+//reset password
+exports.resetpw = function(req, res, next){
+	var _user = req.body.user;
+	var _id = req.session.user._id;
+	var oldpassword = _user.oldpassword;
+	var newpassword = _user.newpassword;
+
+	console.log(req.session.user);
+
+	User.findOne({_id:_id},function(err,user){
+		if(err){ console.log(err); }
+
+		user.comparePassword(oldpassword, function(err, isMatch){
+			if(err){ console.log(err); }
+			if(isMatch){
+
+				user.password = newpassword;
+				user.save(function(err, user) {
+				    if (err) {
+				      console.log(err)
+				    }
+				    req.session.user = user;
+				})
+				
+				req.session.user = null;
+				return res.redirect('/signin');
+			}else{
+				return res.redirect('/setting');
+			}
+		});
+	});
+}
+
+
+
 // midware for user
 exports.signinRequired = function(req, res, next) {
   var user = req.session.user

@@ -11,7 +11,7 @@ var port = process.env.PORT || 3000;
 var app = express();
 var dbUrl = 'mongodb://localhost/meet'
 
-mongoose.connect(dbUrl)
+mongoose.connect(dbUrl);
 
 app.set('views','./app/views/pages');
 app.set('view engine','jade');
