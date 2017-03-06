@@ -2,5 +2,63 @@ extends ../layout
 
 block content
 	.container
-		h1 #{title}
+		h5 个人信息
+		img(src="http://localhost:3000/upload/1.jpg" class="image-large")
+		.change-user-img
+			a(href="#") 修改头像
+
+
+		form.form-personalinfo(method="POST",action="#")
+			table(class="table")
+				tr
+					td 用户名
+					th admin@meet.com
+				tr
+					td 昵称
+					th 
+						input(name="userinfo[nickName]" value="admin" type="text" class="form-control" required)
+				tr
+					td 收到的赞
+					th 0
+				tr
+					td 年级
+					th
+						select(class="form-control")
+							option(value="1") 一年级
+							option(value="2") 二年级
+							option(value="3") 三年级
+							option(value="4") 四年级
+							option(value="5") 五年级
+				tr
+					td 学院
+					th 
+						input(name="userinfo[college]" value="软件学院" type="text" class="form-control" required)
+				tr
+					td 年龄
+					th 
+						input(name="userinfo[age]" value="23" type="text" class="form-control" required)
+				tr
+					td 身高(cm)
+					th 
+						input(name="userinfo[height]" value="178" type="text" class="form-control" required)
+				tr
+					td 体重(kg)
+					th 
+						input(name="userinfo[weight]" value="65" type="text" class="form-control" required)
+				tr
+					td 联系方式
+					th 
+						input(name="userinfo[contact]" value="手机号码188XXXXXX" type="text" class="form-control" required)
+				tr
+					td 自我介绍
+					th 
+						input(name="userinfo[selfIntroduction]" value="XXXXXX" type="text" class="form-control" required)
+				tr
+					td 是否加入首页推荐
+					th 
+						input(name="userinfo[neShow]" value="false" type="checkbox")
+
+				
+
+			button.btn.btn-lg.btn-primary.btn-block(type="submit") 保存修改
 	

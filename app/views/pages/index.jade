@@ -2,11 +2,10 @@ extends ../layout
 
 block content
 	.container
+		h5 用户推荐
 		each item in userinfos
-			.thumbnail
-				a(href="/userinfo/#{item._id}")
-					img(src="#{item.image}",alt="#{item.name}")
-				.caption
-					p #{item.name}
-					a.btn.btn-primary(href="/userinfo/#{item._id}",role="button") 查看详情
+			.user-thumbnail
+				img(src="#{item.image}",alt="#{item.name}" class="image-small")
+				span #{item.name}
+				a.btn.btn-primary(href="/userinfo/#{item._id}",role="button") 查看详情
 								

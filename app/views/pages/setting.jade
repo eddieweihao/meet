@@ -2,8 +2,7 @@ extends ../layout
 
 block content
 	.container
-		br
-		h4 修改密码
+		h5 修改密码
 		form.form-signup(method="POST",action="/user/resetpw")
 			label.sr-only(for="signupPassword") 旧密码
 			input#oldPassword(name="user[oldpassword]" type="password" class="form-control" placeholder="旧密码" required)

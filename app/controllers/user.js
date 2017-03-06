@@ -1,4 +1,5 @@
 var User = require('../models/user');
+var Userinfo = require('../models/Userinfo');
 
 //signin page
 exports.showsignin = function(req, res){
@@ -22,7 +23,8 @@ exports.logout = function(req, res){
 
 //signup back-end
 exports.signup = function(req,res){
-	var _user = req.body.user
+	var _user = req.body.user;
+	var userinfo;
 
 	User.findOne({name: _user.name},  function(err, user) {
 		if (err) {
@@ -38,9 +40,20 @@ exports.signup = function(req,res){
 		    if (err) {
 		      console.log(err)
 		    }
-		    req.session.user = user;
-		    res.redirect('/')
 		  })
+
+		  userinfo = new Userinfo();
+		  userinfo._id = user._id;
+		  userinfo.name = user.name;
+		  userinfo.save(function(err, user) {
+		    if (err) {
+		      console.log(err)
+		    }
+		  })
+		  console.log(user);
+		  console.log(userinfo);
+		  req.session.user = user;
+		  res.redirect('/')
 		}
 	})
 }
@@ -61,7 +74,6 @@ exports.signin = function(req,res){
 			if(err){ console.log(err); }
 			if(isMatch){
 				req.session.user = user;
-
 				return res.redirect('/');
 			}else{
 				return res.redirect('/signin');

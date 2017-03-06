@@ -5,12 +5,17 @@ exports.userinfodetail = function(req,res){
 	res.render('userinfodetail',{
 		title:'用户详情',
 		userinfo:{
-			name:'1号用户',
-			_id: 1,
-			image:'mock-data/1.jpg',
-			age:'21',
-			college:'XX学院',
-			summary:'一段自我介绍',
+			name:'num1@163.com',
+			nickName:'一号用户',
+			stars:'3',
+			grade:'大二',
+			colleg:'软件学院',
+			age:'22',
+			height:'175',
+			weight:'65',
+			selfIntroduction:'一段自我介绍',
+			image:'http://localhost:3000/upload/1.jpg',
+			contact:'微信号XXXXX',
 		}
 	})
 }

@@ -2,13 +2,35 @@ extends ../layout
 
 block content
 	.container
-		img(src="#{userinfo.image}",alt="#{userinfo.name}")
-		dl.dl-horizontal
-			dt 姓名
-			dd= userinfo.name
-			dt 年龄
-			dd= userinfo.age
-			dt 学院
-			dd= userinfo.college
-			dt 简介
-			dd= userinfo.summary
+		img(src="#{userinfo.image}",alt="#{userinfo.name}" class="image-large")
+		table(class="table table-striped")
+			tr
+				td 用户名
+				th #{userinfo.name}
+			tr
+				td 昵称
+				th #{userinfo.nickName}
+			tr
+				td 收到的赞
+				th #{userinfo.stars}
+			tr
+				td 年级
+				th #{userinfo.grade}
+			tr
+				td 学院
+				th #{userinfo.colleg}
+			tr
+				td 年龄
+				th #{userinfo.age}
+			tr
+				td 身高(cm)
+				th #{userinfo.height}
+			tr
+				td 体重(kg)
+				th #{userinfo.weight}
+			tr
+				td 联系方式
+				th #{userinfo.contact}
+			tr
+				td 自我介绍
+				th #{userinfo.selfIntroduction}
