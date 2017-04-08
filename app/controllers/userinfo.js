@@ -7,6 +7,7 @@ exports.userinfodetail = function(req,res){
 		userinfo:{
 			name:'num1@163.com',
 			nickName:'一号用户',
+			sex:'男',
 			stars:'3',
 			grade:'大二',
 			colleg:'软件学院',

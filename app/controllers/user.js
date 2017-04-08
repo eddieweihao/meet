@@ -1,5 +1,6 @@
 var User = require('../models/user');
 var Userinfo = require('../models/Userinfo');
+var Usermatch = require('../models/Usermatch');
 
 //signin page
 exports.showsignin = function(req, res){
@@ -25,6 +26,7 @@ exports.logout = function(req, res){
 exports.signup = function(req,res){
 	var _user = req.body.user;
 	var userinfo;
+	var usermatch;
 
 	User.findOne({name: _user.name},  function(err, user) {
 		if (err) {
@@ -50,8 +52,19 @@ exports.signup = function(req,res){
 		      console.log(err)
 		    }
 		  })
+
+		  usermatch = new Usermatch();
+		  usermatch._id = user._id;
+		  usermatch.name = user.name;
+		  usermatch.save(function(err, user) {
+		    if (err) {
+		      console.log(err)
+		    }
+		  })
+
 		  console.log(user);
 		  console.log(userinfo);
+		  console.log(usermatch);
 		  req.session.user = user;
 		  res.redirect('/')
 		}

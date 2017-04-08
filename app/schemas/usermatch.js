@@ -1,26 +1,12 @@
 var mongoose = require('mongoose')
 
-var UserinfoSchema = new mongoose.Schema({
+var UsermatchSchema = new mongoose.Schema({
   name: {
     unique: true,
     type: String
   },
-  nickName: String,
-  sex: String,
-  stars: Number,
-  starUser: Array,
-  grade: String,
-  college: String,
-  age: String,
-  height: String,
-  weight: String,
-  selfIntroduction: String,
-  image: String,
-  contact: String,
-  beShow: {
-  	type: Boolean,
-  	default: false
-  },
+  tests: String,
+  matchlist: Array,
   meta: {
     createAt: {
       type: Date,
@@ -33,8 +19,8 @@ var UserinfoSchema = new mongoose.Schema({
   }
 })
 
-UserinfoSchema.pre('save', function(next) {
-  var userinfo = this
+UsermatchSchema.pre('save', function(next) {
+  var usermatch = this
 
   if (this.isNew) {
     this.meta.createAt = this.meta.updateAt = Date.now()
@@ -47,7 +33,7 @@ UserinfoSchema.pre('save', function(next) {
 })
 
 
-UserinfoSchema.statics = {
+UsermatchSchema.statics = {
   fetch: function(cb) {
     return this
       .find({})
@@ -61,4 +47,4 @@ UserinfoSchema.statics = {
   }
 }
 
-module.exports = UserinfoSchema
+module.exports = UsermatchSchema
