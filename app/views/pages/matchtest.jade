@@ -1,0 +1,121 @@
+extends ../layout
+
+block content
+	.container
+		h5 性格测试
+		br
+		form.form-matchtest(method="POST",action="#")
+			.test1
+				p 1、你会在哪里盖养老用的房子？
+				select(class="form-control")
+					option A、靠近湖边
+					option B、靠近河边
+					option C、深山里
+					option D、森林中
+			br
+			.test2
+				p 2、吃西餐时，你最先动什么？
+				select(class="form-control")
+					option A、面包
+					option B、肉类
+					option C、色拉
+					option D、饮料
+			br
+			.test3
+				p 3、如果节庆要喝点饮料，你认为如何搭配最适当呢？
+				select(class="form-control")
+					option A、耶诞节、香槟
+					option B、新年、牛奶
+					option C、情人节、葡萄酒
+					option D、国庆日、威士忌
+			br
+			.test4
+				p 4、你通常什么时候洗澡？
+				select(class="form-control")
+					option A、吃完晚饭后
+					option B、吃晚饭前
+					option C、看完电视后
+					option D、上床前
+					option E、早上起床才洗
+					option F、没有特定时间
+			br
+			.test5
+				p 5、如果你可以化为天空的一隅，希望自己成为什么呢？
+				select(class="form-control")
+					option A、太阳
+					option B、月亮
+					option C、星星
+					option D、云
+			br
+			.test6
+				p 6、是否你觉得用红色笔写的“爱”字比用绿色笔写的更能代表真爱吗？
+				select(class="form-control")
+					option A、是
+					option B、否
+			br
+			.test7
+				p 7、你会选择哪种颜色作为你家窗帘的颜色？
+				select(class="form-control")
+					option A、红色
+					option B、蓝色
+					option C、绿色
+					option D、白色
+					option E、黄色
+					option F、橙色
+					option G、黑色
+					option H、紫色
+			br
+			.test8
+				p 8、挑选一种你最喜爱的水果吧。
+				select(class="form-control")
+					option A、葡萄
+					option B、水梨
+					option C、橘子
+					option D、香蕉
+					option E、樱桃
+					option F、苹果
+					option G、葡萄柚
+					option H、哈密瓜
+					option I、柿子
+					option J、木瓜
+					option K、凤梨
+			br
+			.test9
+				p 9、如果你是某种动物，你希望身上搭配什么颜色的毛？
+				select(class="form-control")
+					option A、狮子/红毛
+					option B、猫咪/蓝毛
+					option C、大象/绿毛
+					option D、狐狸/黄毛
+			br
+			.test10
+				p 10、你会为名利权位，刻意讨好上司或朋友吗？
+				select(class="form-control")
+					option A、会
+					option B、不会
+			br
+			.test11
+				p 11、你认为朋友比家人更重要吗？
+				select(class="form-control")
+					option A、是
+					option B、否
+			br
+			.test12
+				p 12、如果你是只白蝴蝶，会停在那一种颜色的花上？
+				select(class="form-control")
+					option A、红色
+					option B、粉红色
+					option C、黄色
+					option D、紫色
+			br
+			.test13
+				p 13、假日无聊时，你会选择什么电视节目来看？
+				select(class="form-control")
+					option A、综艺节目
+					option B、新闻节目
+					option C、连续剧
+					option D、体育转播
+					option E、电影频道
+			br
+			button.btn.btn-lg.btn-primary.btn-block(type="submit") 提交测试
+			

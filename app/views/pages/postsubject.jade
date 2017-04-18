@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+	.container
+		h5 发表主题
+		form.form-signup(method="POST",action="#")
+			textarea(class="form-control" name="content" style="width:100%;height:100px;")
+			br
+			button.btn.btn-lg.btn-primary.btn-block(type="submit") 发表 
+
+		

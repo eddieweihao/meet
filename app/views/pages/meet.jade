@@ -3,6 +3,9 @@ extends ../layout
 block content
 	.container
 		.meet-button
-			span Meet
+			a(href="/match")
+				span Meet
 		.meet-history
-			a(href="#") 查看匹配记录
+			a(href="/matchresult") 查看匹配结果
+		.meet-test
+			a(href="/matchtest") 进入性格测试

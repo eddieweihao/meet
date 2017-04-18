@@ -7,6 +7,7 @@ var UsermatchSchema = new mongoose.Schema({
   },
   tests: String,
   matchlist: Array,
+  lastmatchAt: Date,
   meta: {
     createAt: {
       type: Date,

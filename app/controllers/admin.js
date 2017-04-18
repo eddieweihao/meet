@@ -7,6 +7,8 @@ exports.adminuserlist = function(req,res){
 			console.log(err);
 		}
 
+		console.log(users);
+
 		res.render('userlist',{
 			title: '用户列表页',
 			users: users

@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+	.container
+		h5 匹配结果
+		br
+		each item in matchresult
+			.thumbnail
+				span #{item.name}
+				.caption
+					p #{item.nickName}
+					a.btn.btn-primary(href="#",role="button") 查看详情

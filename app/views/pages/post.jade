@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+	.container
+		h5 树洞
+		.post-subject
+			a(href="/postsubject") 发表主题
+		table(class="table" style="table-layout:fixed;")
+			each item in postlist
+				tr
+					td 
+						img(src="#{item.image}" class="image-xs")
+					th(style="word-wrap:break-word;") 
+						p #{item.nickName}
+						p #{item.content}
+
+		

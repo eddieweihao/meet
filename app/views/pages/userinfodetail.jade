@@ -3,7 +3,7 @@ extends ../layout
 block content
 	.container
 		img(src="#{userinfo.image}",alt="#{userinfo.name}" class="image-large")
-		table(class="table table-striped")
+		table(class="table table-striped" style="table-layout:fixed;")
 			tr
 				td 用户名
 				th #{userinfo.name}
@@ -16,6 +16,9 @@ block content
 			tr
 				td 收到的赞
 				th #{userinfo.stars}
+			tr
+				td 校友认证
+				th #{userinfo.auth}
 			tr
 				td 年级
 				th #{userinfo.grade}
@@ -33,7 +36,7 @@ block content
 				th #{userinfo.weight}
 			tr
 				td 联系方式
-				th #{userinfo.contact}
+				th(style="word-wrap:break-word;") #{userinfo.contact}
 			tr
 				td 自我介绍
-				th #{userinfo.selfIntroduction}
+				th(style="word-wrap:break-word;") #{userinfo.selfIntroduction}

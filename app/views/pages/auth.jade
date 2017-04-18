@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+	.container
+		h5 校友认证
+		form.form-signup(method="POST",action="#")
+			label.sr-only(for="StudentID") 学生证号
+			input#StudentID(name="user[StudentID]" type="text" class="form-control" placeholder="学生证号" required)
+			label.sr-only(for="IDnumber") 身份证号
+			input#IDnumber(name="user[IDnumber]" type="text" class="form-control" placeholder="身份证号" required)
+			br
+			button.btn.btn-lg.btn-primary.btn-block(type="submit") 提交认证信息
